@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T14:57:06+00:00</updated>
+  <updated>2014-01-05T15:05:54+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -128,6 +128,54 @@ print "&lt;/html&gt;";
 </code></pre>
 
 <p>Glöm inte heller att köra chmod +x på filen för att den ska kunna köras av webbservern.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Intervallfoto Med Raspberry Pi]]></title>
+    <link href="http://pi.ryberg.org/blog/2013/05/26/intervallfoto-med-rasoberry-pi/"/>
+    <updated>2013-05-26T14:06:59+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2013/05/26/intervallfoto-med-rasoberry-pi</id>
+    <content type="html"><![CDATA[<object width="640" height="360"><param name="movie" value="//www.youtube.com/v/2a77FLHoxE4?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://pi.ryberg.org//www.youtube.com/v/2a77FLHoxE4?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+
+
+<p>Jag slog till och köpte den nya kameramodulen till Raspberry Pi när jag besökte Webhallen i Fruängen i går. Den ser inte mycket ut för världen och som kamera betraktat kan den närmast jämföras med en mycket enkel mobilkamera utan autofokus. Den monteras via en plattkabel direkt på datorkortet, allt som sedan krävs för att den ska fungera är en uppdatering av datorns firmware med: <code>sudo apt-get update</code>
+och
+<code>sudo apt-get upgrade</code>.</p></p>
+
+<!-- more -->
+
+
+<p>Sedan behöver kameran aktiveras i <code>raspi-config</code>.</p>
+
+<p>Kameran kontrolleras från terminalfönstret med <code>raspivid</code> för video och <code>raspistill</code> för bilder. Alla kamerans funktioner, som att välja iso-värde, längd på inspelad film eller att tala om vilken fil bilden ska sparas till görs genom tillägg direkt i terminalen.</p>
+
+<p>En av de roligare funktionerna är möjligheten att göra time-laps eller intervallfoton. Jag riggade upp min Pi lite snyggt i fönstret för att testa att ta en bildserie.</p>
+
+<p><img src="pi.ryberg.org/images/picam-300x195.jpg" title="Pi i fönster" alt="Pi i fönster" /></p>
+
+<p>Det är inte helt praktiskt att fota med hjälp av kommandon i terminalfönstret, men ganska kul. Följande rad använde jag för att göra ta bilderna som jag sedan använt till filmen ovan:</p>
+
+<p><code>raspistill -o &ldquo;bild%i.jpg&rdquo; -vf -hf -t 3600000 -tl 5000</code></p>
+
+<p>Kommandot <code>raspstill</code> talar om att jag vill ta en bild, <code>-o &ldquo;bild%i.jpg&rdquo;</code> berättar att jag vill att bilderna ska sparas som bild1.jpg, bild2.jpg, bild3.jpg osv. Tilläggen <code>-vf</code> och <code>-hf</code> betyder att bilden ska först spegelvändas (kameran tar alla bilder spegelvända) och sedan vändas upp och ned (jag hade satt kameran upp och ned).</p>
+
+<p>Slutligen betyder <code> -t 36000000</code> att jag vill att fotograferingen ska pågå i 36 miljoner millisekunder, dvs en timma, och <code>-tl 5000</code> är tiden mellan varje bild.</p>
+
+<p>Efter en timma fanns bildserien klar i en mapp på minneskortet i datorn. Med ledning av den <a href="http://designspark.com/blog/time-lapse-photography-with-the-raspberry-pi-camera">här killen</a> hittade jag programmet Mencoder som kan användas för att foga samman bilderna till en film. Mencoder installeras med:
+&lt;<code>sudo apt-get install mencoder</code></p>
+
+<p>För att Mencoder ska kunna hitta rätt bilder i rätt ordning behöver den en textfil med alla filnamn. Den skapas enkelt enligt följande:</p>
+
+<p><code>ls -t -r *.jpg &gt; bilder.txt</code></p>
+
+<p><code>ls</code> listar som bekant alla filer i en mapp, <code>-t -r</code> talar om att du vill ha dem i tidsordning med den äldsta först <code> *.jpg</code> att det bara ska vara bildfiler och <code>&gt; bilder.txt</code> att allt ska skrivas i en fil ned just det namnet.</p>
+
+<p>Sedan snodde jag instruktionerna för Mencoder rakt av så här:</p>
+
+<p><code>mencoder -nosound -ovc lavc -lavcopts vcodec=mpeg4:aspect=16/9:vbitrate=8000000 -vf scale=1920:1080 -o tlcam.avi -mf type=jpeg:fps=24 mf://@bilder.txt</code></p>
+
+<p>Det gjorde att filmen blev utdragen i 16:9 format och inte det format som bilderna var tagna i från början. Nästa försök ska jag se till att fånga bilderna i samma format som filmen är tänkt att vara i. Det borde spara tid när filmen kodas och minne när bilderna tas.</p>
 ]]></content>
   </entry>
   

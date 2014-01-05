@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Raspberry_Pi | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/raspberry-pi/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T18:21:54+00:00</updated>
+  <updated>2014-01-05T19:22:26+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ir-foto Med Pi:n]]></title>
+    <link href="http://pi.ryberg.org/blog/2014/01/05/ir-foto-med-pi-n/"/>
+    <updated>2014-01-05T19:05:01+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2014/01/05/ir-foto-med-pi-n</id>
+    <content type="html"><![CDATA[<p>Pi-noir, Raspberry Pi-foundations kamera utan ir-filter har legat i min låda ett tag utan att jag egentligen haft tid att testa den. Men igår tog jag mig tid att montera den. Den fungerar egentligen precis på samma sätt och med samma kommandon som den vanliga kameran med det undantaget att Pi-noir saknar ir-filter framför kamerans sensor. Pi-kameran är precis som alla digitalkameror kännslig för ir-ljus och i normala fall stör det bildkvaliteten. Bilderna jag tog här hemma är inte mycket att yvas över. Roligast verkar det vara att fotografera utomhus med filter och mycket gröna växter. Jag nöjde mig med att plåta en pelargon.</p>
+
+<p><img src="http://pi.ryberg.org/images/ir-blomma" alt="blomma fotad med ir-kamera" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Intervallfoto 2.0]]></title>

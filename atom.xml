@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T14:18:55+00:00</updated>
+  <updated>2014-01-05T14:29:47+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Emil Bygger Tandborstrobot]]></title>
+    <link href="http://pi.ryberg.org/blog/2013/05/21/emil-bygger-tandborstrobot/"/>
+    <updated>2013-05-21T14:06:59+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2013/05/21/emil-bygger-tandborstrobot</id>
+    <content type="html"><![CDATA[<p><img src="images/tandborstspoke-225x300.jpg" alt="Tandborstrobot" /></p>
+
+<p>Jag köpte var sitt paket <a href="http://littlebits.com/">Littlebits</a> till barnen när jag besökte USA i veckan. Emil använde några av bitarna till att bygga en tandborstrobot.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordPress På Raspberry Pi]]></title>

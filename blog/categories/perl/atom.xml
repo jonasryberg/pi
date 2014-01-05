@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Perl | Jonas@pi]]></title>
+  <title><![CDATA[Category: perl | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T19:30:25+00:00</updated>
+  <updated>2014-01-05T19:44:40+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Webbstyrd Pi-kamera]]></title>
+    <title type="html"><![CDATA[Webbstyrd pi-kamera]]></title>
     <link href="http://pi.ryberg.org/blog/2013/10/26/webbstyrd-pi-kamera/"/>
     <updated>2013-10-26T14:06:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2013/10/26/webbstyrd-pi-kamera</id>

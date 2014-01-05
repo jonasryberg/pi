@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Littlebits | Jonas@pi]]></title>
+  <title><![CDATA[Category: littlebits | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/littlebits/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T19:30:25+00:00</updated>
+  <updated>2014-01-05T19:44:40+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Leverans Av Liten Bit]]></title>
+    <title type="html"><![CDATA[Leverans av liten bit]]></title>
     <link href="http://pi.ryberg.org/blog/2013/07/18/leverans-av-liten-bit/"/>
     <updated>2013-07-18T14:06:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2013/07/18/leverans-av-liten-bit</id>
@@ -25,7 +25,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Små Bitar – Stora Problem]]></title>
+    <title type="html"><![CDATA[Små bitar – stora problem]]></title>
     <link href="http://pi.ryberg.org/blog/2013/07/10/sma-bitar-stora-problem/"/>
     <updated>2013-07-10T14:06:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2013/07/10/sma-bitar-stora-problem</id>
@@ -40,7 +40,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Emil Bygger Tandborstrobot]]></title>
+    <title type="html"><![CDATA[Emil bygger tandborstrobot]]></title>
     <link href="http://pi.ryberg.org/blog/2013/05/21/emil-bygger-tandborstrobot/"/>
     <updated>2013-05-21T14:06:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2013/05/21/emil-bygger-tandborstrobot</id>

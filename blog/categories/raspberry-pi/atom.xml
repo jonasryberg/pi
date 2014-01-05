@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Raspberry_Pi | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/raspberry-pi/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T19:30:25+00:00</updated>
+  <updated>2014-01-05T19:44:40+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Ir-foto Med Pi:n]]></title>
+    <title type="html"><![CDATA[Ir-foto med pi:n]]></title>
     <link href="http://pi.ryberg.org/blog/2014/01/05/ir-foto-med-pi-n/"/>
     <updated>2014-01-05T19:05:01+00:00</updated>
     <id>http://pi.ryberg.org/blog/2014/01/05/ir-foto-med-pi-n</id>
@@ -87,7 +87,7 @@ system "sudo /sbin/shutdown -h now";
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Intervallfoto Med Raspberry Pi]]></title>
+    <title type="html"><![CDATA[Intervallfoto med Raspberry Pi]]></title>
     <link href="http://pi.ryberg.org/blog/2013/05/26/intervallfoto-med-rasoberry-pi/"/>
     <updated>2013-05-26T14:06:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2013/05/26/intervallfoto-med-rasoberry-pi</id>
@@ -135,7 +135,7 @@ och
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordPress På Raspberry Pi]]></title>
+    <title type="html"><![CDATA[WordPress på Raspberry Pi]]></title>
     <link href="http://pi.ryberg.org/blog/2013/05/06/wordpress-pa-raspberry-pi/"/>
     <updated>2013-05-06T14:06:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2013/05/06/wordpress-pa-raspberry-pi</id>

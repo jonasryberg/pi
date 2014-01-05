@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Jonas@pi]]></title>
-  <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Raspberry | Jonas@pi]]></title>
+  <link href="http://pi.ryberg.org/blog/categories/raspberry/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
   <updated>2014-01-05T14:11:38+00:00</updated>
   <id>http://pi.ryberg.org/</id>

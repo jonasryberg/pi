@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Raspberry_Pi | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/raspberry-pi/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T15:05:54+00:00</updated>
+  <updated>2014-01-05T15:13:19+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -93,7 +93,7 @@ och
 
 <p>En av de roligare funktionerna är möjligheten att göra time-laps eller intervallfoton. Jag riggade upp min Pi lite snyggt i fönstret för att testa att ta en bildserie.</p>
 
-<p><img src="pi.ryberg.org/images/picam-300x195.jpg" title="Pi i fönster" alt="Pi i fönster" /></p>
+<p><img src="http://pi.ryberg.org/images/picam-300x195.jpg" title="Pi i fönster" alt="Pi i fönster" /></p>
 
 <p>Det är inte helt praktiskt att fota med hjälp av kommandon i terminalfönstret, men ganska kul. Följande rad använde jag för att göra ta bilderna som jag sedan använt till filmen ovan:</p>
 

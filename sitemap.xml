@@ -2,23 +2,27 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://pi.ryberg.org/blog/2013/05/06/wordpress-pa-raspberry-pi/</loc>
-        <lastmod>2014-01-05T14:18:28+00:00</lastmod>
+        <lastmod>2014-01-05T14:51:37+00:00</lastmod>
     </url>
     <url>
         <loc>http://pi.ryberg.org/blog/2013/05/21/emil-bygger-tandborstrobot/</loc>
         <lastmod>2014-01-05T14:33:08+00:00</lastmod>
     </url>
     <url>
+        <loc>http://pi.ryberg.org/blog/2013/10/26/webbstyrd-pi-kamera/</loc>
+        <lastmod>2014-01-05T14:56:51+00:00</lastmod>
+    </url>
+    <url>
         <loc>http://pi.ryberg.org/blog/2013/11/10/intervallfoto-2-0/</loc>
-        <lastmod>2014-01-05T14:45:41+00:00</lastmod>
+        <lastmod>2014-01-05T14:51:15+00:00</lastmod>
     </url>
     <url>
         <loc>http://pi.ryberg.org/blog/archives/</loc>
-        <lastmod>2014-01-05T14:45:41+00:00</lastmod>
+        <lastmod>2014-01-05T14:56:51+00:00</lastmod>
     </url>
     <url>
         <loc>http://pi.ryberg.org/</loc>
-        <lastmod>2014-01-05T14:45:41+00:00</lastmod>
+        <lastmod>2014-01-05T14:56:51+00:00</lastmod>
     </url>
     <url>
         <loc>http://pi.ryberg.org/om/</loc>

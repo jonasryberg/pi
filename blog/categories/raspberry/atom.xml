@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Raspberry | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/raspberry/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T14:33:20+00:00</updated>
+  <updated>2014-01-05T14:39:43+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Intervallfoto 2.0]]></title>
+    <link href="http://pi.ryberg.org/blog/2013/11/10/intervallfoto-2-0/"/>
+    <updated>2013-11-10T14:06:59+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2013/11/10/intervallfoto-2-0</id>
+    <content type="html"><![CDATA[<p>I förra <a href="http://pi.ryberg.org/texter/Webbstyrd_kamera">inlägget</a> berättade jag hur jag och min bror biologen styrde min Raspberry pi-kamera via en webbserver. Nästa steg är att på ett enkelt sätt få den att ta intervallbilder för att skapa en enkel stop-motion-film. Tanken är förstås att kunna placera ut Pi:n på ett lämpligt ställe, kolla att allt ser bra ut genom att ta en bild och sedan sätta igång intervallfotot. För att göra det enklare ska vi också låta Pi:en räkna ut hur många bilder den behöver ta för att skapa en film av en viss längd.</p>
+
+<p>Första steget är att ändra den ursprungliga webbsidan något så att det blir möjligt att ange under vilken tidsperiod kameran ska fotografera och hur lång den slutliga filmen ska bli.</p>
+
+<p>Ungefär så här blir koden till sidan då:</p>
+
+<pre><code>&lt;html&gt;&lt;form method="get" action="/cgi-bin/kamera.cgi"&gt;&lt;input type="submit" value="Ta bild"&gt;&lt;/form&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;form method="get" action="/cgi-bin/timelaps.cgi"&gt;Film längd: &lt;input type="text" name="film_langd" value="1"min&lt;br&gt;
+Inspelnings längd: &lt;input type="text" name="insp_tid" value="1"h&lt;br&gt;&lt;input type="submit" value="intervallfoto"&gt;&lt;/form
+&lt;/html&gt;
+</code></pre>
+
+<p>Nästa steg är att se till att det finns ett perl-script som kan hämta värdena som matats in i webbformuläret och be kameran att starta intervallfotot. I exemplet har vi döpt den filen till timelaps.cgi. Koden i filen ser ut så här:</p>
+
+<pre><code>#! /usr/bin/perl
+use strict;
+print "Content-type: text/html\n\n";
+my $film_langd;
+my $insp_tid;
+if ($ENV{'QUERY_STRING'} =~ /film_langd=([0-9\.]+)/) { $film_langd=$1; }
+if ($ENV{'QUERY_STRING'} =~ /insp_tid=([0-9\.]+)/) { $insp_tid=$1; }
+print "&lt;html&gt;";
+$insp_tid *= 3600000;
+my $intervall= $insp_tid/($film_langd*60*24);
+print "&lt;p&gt;sudo /usr/bin/raspistill -o \"/var/www/pictures/ivbild%i.jpg\" -t $insp_tid -vf -hf -w 1920 -h 1080 -tl $intervall -n&lt;/p&gt;";
+system "sudo /usr/bin/raspistill -o \"/var/www/pictures/ivbild%i.jpg\" -t $insp_tid -vf -hf -w 1920 -h 1080 -tl $intervall -n";
+print "&lt;p&gt;H&amp;auml;r &amp;aumlr din.&lt;/p&gt;";
+print '&lt;a href="http://pi.ryberg.org/pictures/film.h264"&gt;film!&lt;/a&gt;';
+print "&lt;/html&gt;";
+</code></pre>
+
+<p>Koden räknar ut hur många bilder som ska tas för att det ska gå att skapa en film av önskad längd med 24 bilder per sekund. Om man väljer för kort filmtid i förhållande till inspelningstiden blir det problem eftersom kameran inte hinner ta bilderna tillräckligt fort. I praktiken är det dock knappast ett problem.</p>
+
+<p>Jag passade också på att lägga in en knapp för att slå av pi:n när plåtandet är klart. Den koden finns här:</p>
+
+<pre><code>#! /usr/bin/perl 
+system "sudo /sbin/shutdown -h now";
+</code></pre>
+
+<p>Glöm inte att köra <code>chmod +x</code> på alla filerna med kod så att webservern kan starta dem.</p>
+
+<p>Här är resultatet av mitt första test. Jag har använt programmet mencoder för att foga samman bilderna till en film, kolla <a href="http://pi.ryberg.org/texter/intervallfoto_med_Raspberry_Pi">den här texten</a> om du vill veta hur.</p>
+
+<iframe width="560" height="315" src="http://pi.ryberg.org//www.youtube.com/embed/akjcLrhI0mM" frameborder="0" allowfullscreen></iframe>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordPress På Raspberry Pi]]></title>

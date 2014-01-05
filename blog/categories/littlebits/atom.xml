@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Littlebits | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/littlebits/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-05T15:53:30+00:00</updated>
+  <updated>2014-01-05T18:21:54+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Leverans Av Liten Bit]]></title>
+    <link href="http://pi.ryberg.org/blog/2013/07/18/leverans-av-liten-bit/"/>
+    <updated>2013-07-18T14:06:59+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2013/07/18/leverans-av-liten-bit</id>
+    <content type="html"><![CDATA[<p><img src="http://pi.ryberg.org/images/skakbit_i_antistat.jpg" alt="Skakbiten" /></p>
+
+<p>Så kom den då till slut, <a href="blog/2013/07/10/sma-bitar-stora-problem/">skakbiten</a>. UPS försökte lämna den hemma hos mig vid sex tillfällen utan att lyckas.  Vi kom då överens om att de skulle försöka lämna den i sommarstugan i stället. Efter ett tag kom dock UPS på att den ligger i en “remote area”. Den fiffiga lösningen blev till slut Posten, som ju faktiskt har ett system för att leverera paketet också till oss som inte har en reception med personal hemma.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Små Bitar – Stora Problem]]></title>
+    <link href="http://pi.ryberg.org/blog/2013/07/10/sma-bitar-stora-problem/"/>
+    <updated>2013-07-10T14:06:59+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2013/07/10/sma-bitar-stora-problem</id>
+    <content type="html"><![CDATA[<p><img src="http://pi.ryberg.org/images/skakbit.jpg" alt="Tandborstrobot" /></p>
+
+<p>För några veckor sedan köpte jag ett paket Little bits till barnen. Tyvärr gick en av bitarna, den så kallade skakbiten, sönder nästan direkt.</p>
+
+<p>Jag mejlade företagets support som beklagade att den gått sönder, bad mig be barnen vara mer försiktiga, och lovade att skicka en ny bit. Bra service med andra ord.</p>
+
+<p>Nu väntar vi bara på att UPS ska lösa transporten. Första delen av vägen, den från Shenzen till Arlanda gick fort. Värre verkar det vara att leverera paketet hem till mig. UPS ska ha varit här fem gånger de senaste veckorna utan att ha lyckas, trots försök med lämnat telefonnummer, portkod och andra instruktioner. Men vem vet. Någon gång kanske våra vägar möts, mina och mannen/kvinnan från UPS.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Emil Bygger Tandborstrobot]]></title>

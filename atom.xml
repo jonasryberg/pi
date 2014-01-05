@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Jonas@pi]]></title>
-  <link href="http://jonasryberg.github.io//github/atom.xml" rel="self"/>
-  <link href="http://jonasryberg.github.io//github/"/>
-  <updated>2014-01-05T13:40:39+00:00</updated>
-  <id>http://jonasryberg.github.io//github/</id>
+  <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
+  <link href="http://pi.ryberg.org/"/>
+  <updated>2014-01-05T13:43:01+00:00</updated>
+  <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
     

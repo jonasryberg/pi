@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://jonasryberg.github.io//github/sitemap.xml 
+Sitemap: http://pi.ryberg.org/sitemap.xml 

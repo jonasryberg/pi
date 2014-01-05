@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://jonasryberg.github.io//github/blog/archives/</loc>
+        <loc>http://pi.ryberg.org/blog/archives/</loc>
         <lastmod>2014-01-05T13:10:51+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonasryberg.github.io//github/</loc>
+        <loc>http://pi.ryberg.org/</loc>
         <lastmod>2014-01-05T13:10:51+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonasryberg.github.io//github/om/</loc>
+        <loc>http://pi.ryberg.org/om/</loc>
         <lastmod>2014-01-05T13:31:10+00:00</lastmod>
     </url>
     <url>
-        <loc>http://jonasryberg.github.io//github/robots.txt</loc>
+        <loc>http://pi.ryberg.org/robots.txt</loc>
         <lastmod>2014-01-05T13:10:51+00:00</lastmod>
     </url>
 </urlset>

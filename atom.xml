@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-07T16:22:55+00:00</updated>
+  <updated>2014-01-07T16:24:06+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -25,7 +25,7 @@
 <p>Det finns säkert en uppsjö liknande appar, men Chesspresso gör jobbet väl med ren design och enkla funktioner för att stega fram och tillbaka i ett parti, möjlighet att spara partierna och enkel statistik över hur matcherna gått. Det går att spela mot slumpvisa användare i nätverket, men jag har bara testat att spela mot vänner. Det är helt enkelt roligare att vinna eller förlora mot någon man känner.</p>
 
 <p><img src="http://pi.ryberg.org/images/chesspresso.webp" alt="Chesspresso" />
-<em>Chesspresso för digitalt korresponsenschack</em></p>
+<em>Chesspresso för digitalt korrespondansschack</em></p>
 ]]></content>
   </entry>
   

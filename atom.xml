@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-16T20:50:23+00:00</updated>
+  <updated>2014-01-25T16:47:42+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rövarspråket i Python]]></title>
+    <link href="http://pi.ryberg.org/blog/2014/01/25/rovarspraket-i-Python/"/>
+    <updated>2014-01-25T17:35:02+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2014/01/25/rovarspraket-i-Python</id>
+    <content type="html"><![CDATA[<p>Jag har börjat gå igenom övningarna i Python hos <a href="http://www.codecademy.com/">Codeacademy</a>. Pedagogiskt och bra, men hur kul är det att skapa ett program för att skriva i Pylatin? Klassiska rövarspråket är att föredra tycker jag så jag satte ihop ett eget exempel.</p>
+
+<div><script src='https://gist.github.com/8619200.js'></script>
+<noscript><pre><code># coding=latin1
+# Pythonskript för att skapa rövarspråk
+# av Jonas Ryberg
+
+
+print &quot;Rövarspråksgenerator&quot;
+
+
+
+exit = &quot;J&quot;
+
+while exit != &quot;N&quot; :
+    woworordod = str()
+    original = raw_input('Skriv in ett ord &gt; ')
+
+    if len(original) &gt; 0 and original.isalpha():
+    
+        word = original.lower()
+    
+        letter_index = 0
+    
+        while letter_index &lt;= len(word)-1:
+    
+            letter = word[letter_index]
+    
+            if letter == &quot;a&quot; or letter == &quot;e&quot; or letter == &quot;i&quot; or letter == &quot;o&quot; or letter == &quot;u&quot;:
+            
+                woworordod = woworordod + letter
+                letter_index = letter_index + 1
+        
+            else:
+                woworordod = woworordod + letter + &quot;o&quot; + letter
+                letter_index = letter_index + 1
+            
+            
+
+    else:
+        print 'inget ord eller mer än ett ord'
+    
+    print woworordod
+    exit = raw_input(&quot;En gång till? (J/N) &gt;&quot;)</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Nypressat schackintresse]]></title>

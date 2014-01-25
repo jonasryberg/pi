@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Ryberg">
 
   
-  <meta name="description" content="Visserligen är Schack 2 på gång, men jag jobbar fortfarande vidare på att bemästra originalet. Arbetet har kommit igång efter att min äldste son &hellip;">
+  <meta name="description" content="Jag har börjat gå igenom övningarna i Python hos Codeacademy. Pedagogiskt och bra, men hur kul är det att skapa ett program för att skriva i Pylatin &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,88 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/25/rovarspraket-i-Python/">Rövarspråket i Python</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-25T17:35:02+00:00" pubdate data-updated="true">2014-01-25</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Jag har börjat gå igenom övningarna i Python hos <a href="http://www.codecademy.com/">Codeacademy</a>. Pedagogiskt och bra, men hur kul är det att skapa ett program för att skriva i Pylatin? Klassiska rövarspråket är att föredra tycker jag så jag satte ihop ett eget exempel.</p>
+
+<div><script src='https://gist.github.com/8619200.js'></script>
+<noscript><pre><code># coding=latin1
+# Pythonskript för att skapa rövarspråk
+# av Jonas Ryberg
+
+
+print &quot;Rövarspråksgenerator&quot;
+
+
+
+exit = &quot;J&quot;
+
+while exit != &quot;N&quot; :
+    woworordod = str()
+    original = raw_input('Skriv in ett ord &gt; ')
+
+    if len(original) &gt; 0 and original.isalpha():
+    
+        word = original.lower()
+    
+        letter_index = 0
+    
+        while letter_index &lt;= len(word)-1:
+    
+            letter = word[letter_index]
+    
+            if letter == &quot;a&quot; or letter == &quot;e&quot; or letter == &quot;i&quot; or letter == &quot;o&quot; or letter == &quot;u&quot;:
+            
+                woworordod = woworordod + letter
+                letter_index = letter_index + 1
+        
+            else:
+                woworordod = woworordod + letter + &quot;o&quot; + letter
+                letter_index = letter_index + 1
+            
+            
+
+    else:
+        print 'inget ord eller mer än ett ord'
+    
+    print woworordod
+    exit = raw_input(&quot;En gång till? (J/N) &gt;&quot;)</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -465,6 +547,10 @@ och
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/25/rovarspraket-i-Python/">Rövarspråket i Python</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/07/nypressat-schackintresse/">Nypressat schackintresse</a>
       </li>
     
@@ -478,10 +564,6 @@ och
     
       <li class="post">
         <a href="/blog/2013/10/26/webbstyrd-pi-kamera/">Webbstyrd pi-kamera</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/18/leverans-av-liten-bit/">Leverans av liten bit</a>
       </li>
     
   </ul>

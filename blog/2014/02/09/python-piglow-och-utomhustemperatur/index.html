@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Python, PiGlow och utomhustemperatur - Jonas@pi</title>
+  <meta name="author" content="Jonas Ryberg">
+
+  
+  <meta name="description" content="Tidigt i höstas köpte jag en Piglow och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att blinka lite med Scratch. Men, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Jonas@pi" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46864965-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jonas@pi</a></h1>
+  
+    <h2>Bloggade nörderier.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:pi.ryberg.org" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blogg</a></li>
+  <li><a href="/blog/archives">Arkiv</a></li>
+  <li><a href="/om">Om bloggen</a></li>
+  <li><a href="/om/mig.html">Om mig</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Python, PiGlow och utomhustemperatur</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-09T19:54:34+00:00" pubdate data-updated="true">2014-02-09</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="https://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
+
+<p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Men, inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på några liknande projekt.</p>
+
+<p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Wetherunderground</a> API för att berätta hur varmt eller kallt det känns ute. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
+
+<p>Python-koden nedan kräver biblioteket PyGlow för att fungera tillsammans med Piglow. Det kan hämtas <a href="https://github.com/benleb/PyGlow">här</a>.</p>
+
+<p>Så här ser skriptet ut, glöm inte att fylla i din egen api-nyckel från Wetherundergroud.</p>
+
+<div><script src='https://gist.github.com/8775271.js'></script>
+<noscript><pre><code># coding=latin1
+# Feelometer - hämtar information om hur kallt vädret känns från wunderground och visar 
+# den på en Raspberry pi med en PiGlow från Pimoroni
+# 
+# av Jonas Ryberg
+# Kräver biblioteket PyGlow som hämtas på  https://github.com/benleb/PyGlow
+#
+# ------------------------------
+# Så här ska dioderna på PiGlow tolkas
+#
+# blå led = -1
+# vit led = -10
+#
+# grön led = 1
+# röd led = 10
+# gul led = 5
+# ------------------------------
+
+from urllib2 import urlopen
+import json
+from pyglow import PyGlow # importerar funktioner for att styra PiGlow
+from time import sleep
+
+pyglow = PyGlow()
+
+
+# Hämta data för Stockholm från wunderground.com
+
+req = urlopen('http://api.wunderground.com/api/din-api-nyckel/conditions/q/SE/stockholm.json')
+parsed_json = json.load(req)
+feelslike = int(parsed_json['current_observation']['feelslike_c'])
+
+# Definierar variabler
+
+styrka = 100
+blue = 0
+green = 0
+yellow = 0
+red = 0
+white = 0
+
+# feelslike = -3 # för test
+
+# avgör vilka dioder som ska tändas
+
+
+if feelslike == 0: #om nollgradigt
+   blue = 1
+   green = 1
+
+if feelslike &gt; 0: #om plussgrader
+   red = int(feelslike/10)
+   yellow = int((feelslike-red*10)/5)
+   green = feelslike-red*10-yellow*5
+        
+   if green &gt; 3:
+      yellow = 0
+      red = red + 1
+      blue = 1
+      green = 0
+        
+if feelslike &lt; 0: #om minusgrader
+      feelslike = -feelslike
+      white = int(feelslike/10)
+      blue = feelslike - white*10
+      if blue &gt; 3:
+        white = white+1
+        if blue == 4:
+            green = 1
+            yellow = 1
+            blue = 0
+        if blue == 5:
+            yellow = 1
+            blue = 0
+        if blue == 6:
+            yellow = 1
+            blue = 1
+        if blue &gt; 6:
+            green = 10 - blue
+            blue = 0
+
+# för test
+# -----------------------------
+# print'blue = ' + str(blue)
+# print'green = ' + str(green)
+# print'yellow = ' + str(yellow)
+# print'red = ' + str(red)
+# print'white = ' + str(white)
+# ------------------------------
+
+'''
+led-adresser
+
+pyglow.led(18,100)#vit
+pyglow.led(12,100)#vit
+pyglow.led(6,100) #vit
+
+
+pyglow.led(5,100) #blå
+pyglow.led(11,100)#blå
+pyglow.led(17,100)#blå
+
+pyglow.led(16,100)#grön
+pyglow.led(10,100)#grön
+pyglow.led(4,100) #grön
+
+pyglow.led(3,100) #gul  
+pyglow.led(9,100) #gul
+pyglow.led(15,100) #gul
+
+pyglow.led(2,100) #orange
+pyglow.led(8,100) #orange
+pyglow.led(14,100) #orange
+
+pyglow.led(1,100) #röd
+pyglow.led(7,100) #röd
+pyglow.led(13,100) #röd
+'''
+
+pyglow.all(0)
+
+# tänd led
+
+while white &gt; 0:
+    pyglow.led((white*6),styrka)
+    white = white - 1
+
+start = 1
+while red &gt; 0:
+    pyglow.led(start,styrka)
+    red = red -1
+    start = start + 6
+
+start = 3
+while yellow &gt; 0:
+    pyglow.led(start,styrka)
+    yellow = yellow -1
+    start = start + 6
+
+start = 4
+while green &gt; 0:
+    pyglow.led(start,styrka)
+    green = green -1
+    start = start + 6
+
+start = 5
+while blue &gt; 0:
+    pyglow.led(start,styrka)
+    blue = blue - 1
+    start = start + 6</code></pre></noscript></div>
+
+
+<p>Om du vill att temperaturen ska uppdateras krävs såklart att skriptet körs med jämna intervall, till exempel med ett sk cron job. Mer info om hur du får igång ett sådant finns <a href="http://www.howtogeek.com/101288/how-to-schedule-tasks-on-linux-an-introduction-to-crontab-files/">här</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jonas Ryberg</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-09T19:54:34+00:00" pubdate data-updated="true">2014-02-09</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/api/'>api</a>, <a class='category' href='/blog/categories/piglow/'>piglow</a>, <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/" data-via="ryberg" data-counturl="http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/01/25/rovarspraket-i-Python/" title="Previous Post: Rövarspråket i Python">&laquo; Rövarspråket i Python</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Nypublicerat</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/python-piglow-och-utomhustemperatur/">Python, PiGlow och utomhustemperatur</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/25/rovarspraket-i-Python/">Rövarspråket i Python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/07/nypressat-schackintresse/">Nypressat schackintresse</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/05/ir-foto-med-pi-n/">Ir-foto med pi:n</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/10/intervallfoto-2-0/">Intervallfoto 2.0</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Jonas Ryberg -
+  <span class="credit">Tillagad med <a href="http://octopress.org">Octopress</a>, serverad på <a href="http://github.com">Github</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'piryberg';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/';
+        var disqus_url = 'http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

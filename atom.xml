@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-01-25T16:47:42+00:00</updated>
+  <updated>2014-02-09T20:06:07+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,178 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Python, PiGlow och utomhustemperatur]]></title>
+    <link href="http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/"/>
+    <updated>2014-02-09T19:54:34+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur</id>
+    <content type="html"><![CDATA[<p><img src="https://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
+
+<p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Men, inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på några liknande projekt.</p>
+
+<p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Wetherunderground</a> API för att berätta hur varmt eller kallt det känns ute. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
+
+<p>Python-koden nedan kräver biblioteket PyGlow för att fungera tillsammans med Piglow. Det kan hämtas <a href="https://github.com/benleb/PyGlow">här</a>.</p>
+
+<p>Så här ser skriptet ut, glöm inte att fylla i din egen api-nyckel från Wetherundergroud.</p>
+
+<div><script src='https://gist.github.com/8775271.js'></script>
+<noscript><pre><code># coding=latin1
+# Feelometer - hämtar information om hur kallt vädret känns från wunderground och visar 
+# den på en Raspberry pi med en PiGlow från Pimoroni
+# 
+# av Jonas Ryberg
+# Kräver biblioteket PyGlow som hämtas på  https://github.com/benleb/PyGlow
+#
+# ------------------------------
+# Så här ska dioderna på PiGlow tolkas
+#
+# blå led = -1
+# vit led = -10
+#
+# grön led = 1
+# röd led = 10
+# gul led = 5
+# ------------------------------
+
+from urllib2 import urlopen
+import json
+from pyglow import PyGlow # importerar funktioner for att styra PiGlow
+from time import sleep
+
+pyglow = PyGlow()
+
+
+# Hämta data för Stockholm från wunderground.com
+
+req = urlopen('http://api.wunderground.com/api/din-api-nyckel/conditions/q/SE/stockholm.json')
+parsed_json = json.load(req)
+feelslike = int(parsed_json['current_observation']['feelslike_c'])
+
+# Definierar variabler
+
+styrka = 100
+blue = 0
+green = 0
+yellow = 0
+red = 0
+white = 0
+
+# feelslike = -3 # för test
+
+# avgör vilka dioder som ska tändas
+
+
+if feelslike == 0: #om nollgradigt
+   blue = 1
+   green = 1
+
+if feelslike &gt; 0: #om plussgrader
+   red = int(feelslike/10)
+   yellow = int((feelslike-red*10)/5)
+   green = feelslike-red*10-yellow*5
+        
+   if green &gt; 3:
+      yellow = 0
+      red = red + 1
+      blue = 1
+      green = 0
+        
+if feelslike &lt; 0: #om minusgrader
+      feelslike = -feelslike
+      white = int(feelslike/10)
+      blue = feelslike - white*10
+      if blue &gt; 3:
+        white = white+1
+        if blue == 4:
+            green = 1
+            yellow = 1
+            blue = 0
+        if blue == 5:
+            yellow = 1
+            blue = 0
+        if blue == 6:
+            yellow = 1
+            blue = 1
+        if blue &gt; 6:
+            green = 10 - blue
+            blue = 0
+
+# för test
+# -----------------------------
+# print'blue = ' + str(blue)
+# print'green = ' + str(green)
+# print'yellow = ' + str(yellow)
+# print'red = ' + str(red)
+# print'white = ' + str(white)
+# ------------------------------
+
+'''
+led-adresser
+
+pyglow.led(18,100)#vit
+pyglow.led(12,100)#vit
+pyglow.led(6,100) #vit
+
+
+pyglow.led(5,100) #blå
+pyglow.led(11,100)#blå
+pyglow.led(17,100)#blå
+
+pyglow.led(16,100)#grön
+pyglow.led(10,100)#grön
+pyglow.led(4,100) #grön
+
+pyglow.led(3,100) #gul  
+pyglow.led(9,100) #gul
+pyglow.led(15,100) #gul
+
+pyglow.led(2,100) #orange
+pyglow.led(8,100) #orange
+pyglow.led(14,100) #orange
+
+pyglow.led(1,100) #röd
+pyglow.led(7,100) #röd
+pyglow.led(13,100) #röd
+'''
+
+pyglow.all(0)
+
+# tänd led
+
+while white &gt; 0:
+    pyglow.led((white*6),styrka)
+    white = white - 1
+
+start = 1
+while red &gt; 0:
+    pyglow.led(start,styrka)
+    red = red -1
+    start = start + 6
+
+start = 3
+while yellow &gt; 0:
+    pyglow.led(start,styrka)
+    yellow = yellow -1
+    start = start + 6
+
+start = 4
+while green &gt; 0:
+    pyglow.led(start,styrka)
+    green = green -1
+    start = start + 6
+
+start = 5
+while blue &gt; 0:
+    pyglow.led(start,styrka)
+    blue = blue - 1
+    start = start + 6</code></pre></noscript></div>
+
+
+<p>Om du vill att temperaturen ska uppdateras krävs såklart att skriptet körs med jämna intervall, till exempel med ett sk cron job. Mer info om hur du får igång ett sådant finns <a href="http://www.howtogeek.com/101288/how-to-schedule-tasks-on-linux-an-introduction-to-crontab-files/">här</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rövarspråket i Python]]></title>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Piglow | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/piglow/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-02-09T20:19:11+00:00</updated>
+  <updated>2014-02-09T20:21:22+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -18,9 +18,9 @@
     <link href="http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/"/>
     <updated>2014-02-09T19:54:34+00:00</updated>
     <id>http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur</id>
-    <content type="html"><![CDATA[<p><img src="http://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
+    <content type="html"><![CDATA[<p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Men, inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på några liknande projekt.</p>
 
-<p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Men, inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på några liknande projekt.</p>
+<p><img src="http://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
 
 <p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Wetherunderground</a> API för att berätta hur varmt eller kallt det känns ute. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
 

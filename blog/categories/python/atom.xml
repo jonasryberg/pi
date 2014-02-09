@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: python | Jonas@pi]]></title>
+  <title><![CDATA[Category: Python | Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-02-09T20:06:07+00:00</updated>
+  <updated>2014-02-09T20:19:11+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -18,7 +18,7 @@
     <link href="http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur/"/>
     <updated>2014-02-09T19:54:34+00:00</updated>
     <id>http://pi.ryberg.org/blog/2014/02/09/python-piglow-och-utomhustemperatur</id>
-    <content type="html"><![CDATA[<p><img src="https://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
+    <content type="html"><![CDATA[<p><img src="http://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
 
 <p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Men, inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på några liknande projekt.</p>
 
@@ -26,7 +26,7 @@
 
 <p>Python-koden nedan kräver biblioteket PyGlow för att fungera tillsammans med Piglow. Det kan hämtas <a href="https://github.com/benleb/PyGlow">här</a>.</p>
 
-<p>Så här ser skriptet ut, glöm inte att fylla i din egen api-nyckel från Wetherundergroud.</p>
+<p>Så här ser skriptet ut, glöm inte att fylla i din egen api-nyckel från Wetherunderground.</p>
 
 <p><div><script src='https://gist.github.com/8775271.js'></script>
 <noscript><pre><code># coding=latin1
@@ -182,6 +182,59 @@ while blue &gt; 0:
 </p>
 
 <p>Om du vill att temperaturen ska uppdateras krävs såklart att skriptet körs med jämna intervall, till exempel med ett sk cron job. Mer info om hur du får igång ett sådant finns <a href="http://www.howtogeek.com/101288/how-to-schedule-tasks-on-linux-an-introduction-to-crontab-files/">här</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rövarspråket i Python]]></title>
+    <link href="http://pi.ryberg.org/blog/2014/01/25/rovarspraket-i-Python/"/>
+    <updated>2014-01-25T17:35:02+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2014/01/25/rovarspraket-i-Python</id>
+    <content type="html"><![CDATA[<p>Jag har börjat gå igenom övningarna i Python hos <a href="http://www.codecademy.com/">Codeacademy</a>. Pedagogiskt och bra, men hur kul är det att skapa ett program för att skriva i Pylatin? Klassiska rövarspråket är att föredra tycker jag så jag satte ihop ett eget exempel.</p>
+
+<p><div><script src='https://gist.github.com/8619200.js'></script>
+<noscript><pre><code># coding=latin1
+# Pythonskript för att skapa rövarspråk
+# av Jonas Ryberg
+
+
+print &quot;Rövarspråksgenerator&quot;
+
+
+
+exit = &quot;J&quot;
+
+while exit != &quot;N&quot; :
+    woworordod = str()
+    original = raw_input('Skriv in ett ord &gt; ')
+
+    if len(original) &gt; 0 and original.isalpha():
+    
+        word = original.lower()
+    
+        letter_index = 0
+    
+        while letter_index &lt;= len(word)-1:
+    
+            letter = word[letter_index]
+    
+            if letter == &quot;a&quot; or letter == &quot;e&quot; or letter == &quot;i&quot; or letter == &quot;o&quot; or letter == &quot;u&quot;:
+            
+                woworordod = woworordod + letter
+                letter_index = letter_index + 1
+        
+            else:
+                woworordod = woworordod + letter + &quot;o&quot; + letter
+                letter_index = letter_index + 1
+            
+            
+
+    else:
+        print 'inget ord eller mer än ett ord'
+    
+    print woworordod
+    exit = raw_input(&quot;En gång till? (J/N) &gt;&quot;)</code></pre></noscript></div>
+</p>
 ]]></content>
   </entry>
   

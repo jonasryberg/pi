@@ -9,7 +9,7 @@
   <meta name="author" content="Jonas Ryberg">
 
   
-  <meta name="description" content="Tidigt i höstas köpte jag en Piglow och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att blinka lite med Scratch. Men, &hellip;">
+  <meta name="description" content="Tidigt i höstas köpte jag en Piglow och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att blinka lite med Scratch. Inspirerad av &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,11 +105,11 @@
   </header>
 
 
-<div class="entry-content"><p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Men, inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på några liknande projekt.</p>
+<div class="entry-content"><p>Tidigt i höstas köpte jag en <a href="http://shop.pimoroni.com/products/piglow">Piglow</a> och kopplade in den på min Pi. Men jag kom aldrig längre än att testa att <a href="http://cymplecy.wordpress.com/2013/08/12/scratch-gpio-piglow-support/">blinka lite med Scratch</a>. Inspirerad av <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här killen</a> som använder sin Pi och en lysdiod för att ha koll på vädret och <a href="http://issabove.com/iss-above-and-the-raspberry-pi/">den här snubben</a> som använder sin Piglow för att veta när internationella rymdstationen är på ingång, så tänkte jag att det var dags att se om jag kunde hitta på något liknande projekt.</p>
 
 <p><img src="http://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
 
-<p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Wetherunderground</a> API för att berätta hur varmt eller kallt det känns ute. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
+<p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Wetherunderground</a> API för att berätta hur varmt eller kallt det känns ute, en feelometer. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
 
 <p>Python-koden nedan kräver biblioteket PyGlow för att fungera tillsammans med Piglow. Det kan hämtas <a href="https://github.com/benleb/PyGlow">här</a>.</p>
 

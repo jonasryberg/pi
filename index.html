@@ -112,11 +112,11 @@
 
 <p><img src="http://pi.ryberg.org/images/piglowtmp.jpg" title="Piglow visar temperaturen" alt="Piglow" /></p>
 
-<p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Wetherunderground</a> API för att berätta hur varmt eller kallt det känns ute, en feelometer. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
+<p>Första testet var att skriva ett program som kunde använda information från <a href="http://www.wunderground.com/weather/api/">Weatherunderground</a> API för att berätta hur varmt eller kallt det känns ute, en feelometer. Jag utgick från <a href="http://www.howtogeek.com/140063/build-an-led-indicator-with-a-raspberry-pi-for-email-weather-or-anything/all/">den här beskrivningen</a> för att hantera anropen till Wunderground. Sedan gällde det att komma på ett fiffigt sätt att visa tempratur med de 18 lysdioderna på Piglow. Jag bestämde mig för ett system där blå led motsvarade -1 grad, vit led -10 grader, grön led 1 grad, röd led 10 grader och gul led 5 grader.</p>
 
 <p>Python-koden nedan kräver biblioteket PyGlow för att fungera tillsammans med Piglow. Det kan hämtas <a href="https://github.com/benleb/PyGlow">här</a>.</p>
 
-<p>Så här ser skriptet ut, glöm inte att fylla i din egen api-nyckel från Wetherunderground.</p>
+<p>Så här ser skriptet ut, glöm inte att fylla i din egen api-nyckel från Weatherunderground.</p>
 
 <div><script src='https://gist.github.com/8775271.js'></script>
 <noscript><pre><code># coding=latin1

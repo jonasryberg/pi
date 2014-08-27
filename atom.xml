@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-08-27T19:18:08+00:00</updated>
+  <updated>2014-08-27T19:45:44+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -19,6 +19,8 @@
     <updated>2014-09-27T21:10:59+00:00</updated>
     <id>http://pi.ryberg.org/blog/2014/09/27/test</id>
     <content type="html"><![CDATA[<p>Testar Yo:s nya api. Nu ska det gå att få reda på när bloggen uppdateras genom att skicka ett Yo till <a href="http://justyo.co/pibloggen">PIBLOGGEN</a>.</p>
+
+<p><em>Uppdaterat</em> Men tyvärr verkar det inte fungera något vidare.</p>
 ]]></content>
   </entry>
   

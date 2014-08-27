@@ -4,7 +4,7 @@
   <title><![CDATA[Jonas@pi]]></title>
   <link href="http://pi.ryberg.org/atom.xml" rel="self"/>
   <link href="http://pi.ryberg.org/"/>
-  <updated>2014-02-10T18:23:15+00:00</updated>
+  <updated>2014-08-27T19:15:15+00:00</updated>
   <id>http://pi.ryberg.org/</id>
   <author>
     <name><![CDATA[Jonas Ryberg]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Test av Yo]]></title>
+    <link href="http://pi.ryberg.org/blog/2014/09/27/test/"/>
+    <updated>2014-09-27T21:10:59+00:00</updated>
+    <id>http://pi.ryberg.org/blog/2014/09/27/test</id>
+    <content type="html"><![CDATA[<p>Testar Yo:s nya api. Nu ska det gå att få reda på när bloggen uppdateras genom att skicka ett Yo till <a href="justyo.co/pibloggen">PIBLOGGEN</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Python, PiGlow och utomhustemperatur]]></title>
